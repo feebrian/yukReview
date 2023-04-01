@@ -1,5 +1,4 @@
 @extends('layouts.main')
-
 @section('container')
-    <h1>halaman register</h1>
+    <h1>halaman reviews</h1>
 @endsection

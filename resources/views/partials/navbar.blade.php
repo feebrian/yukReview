@@ -27,10 +27,10 @@
                 @guest
                     <div class="hidden md:flex items-center space-x-3 ">
                         <a href="/login"
-                            class="py-2 px-2 font-medium text-gray-500 rounded hover:bg-soft-red hover:text-white transition duration-300">Log
+                            class="py-1.5 px-2 font-medium text-gray-500 rounded hover:bg-soft-red hover:text-white transition duration-300 {{ $active === 'login' ? 'bg-soft-red text-white' : '' }}">Log
                             In</a>
                         <a href="/register"
-                            class="py-1.5 px-2 font-medium text-white bg-soft-red rounded hover:bg-[#952e35] transition duration-300">Sign
+                            class="py-1.5 px-2 font-medium text-gray-500 rounded hover:bg-soft-red hover:text-white transition duration-300 {{ $active === 'register' ? 'bg-soft-red text-white' : '' }}">Sign
                             Up</a>
                     </div>
                 @endguest

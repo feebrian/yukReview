@@ -1,7 +1,12 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\MovieController;
+use App\Http\Controllers\NewsController;
+use App\Http\Controllers\ReviewController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,20 +29,9 @@ Route::get('/', function (){
     ]);
 });
 
-Route::get('/movies', function () {
-    return view('movies', [
-        'active' => "movies"
-    ]);
-});
-
-Route::get('/categories', function () {
-    return view('categories', [
-        'active' => "categories"
-    ]);
-});
-
-Route::get('/news', function () {
-    return view('news', [
-        'active' => "news"
-    ]);
-});
+Route::get('/movies', [MovieController::class, 'index']);
+Route::get('/reviews', [ReviewController::class, 'index']);
+Route::get('/categories', [CategoryController::class, 'index']);
+Route::get('/news', [NewsController::class, 'index']);
+Route::get('/login', [LoginController::class, 'login']);
+Route::get('/register', [LoginController::class, 'register']);
