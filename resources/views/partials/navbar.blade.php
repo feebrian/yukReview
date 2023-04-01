@@ -1,4 +1,4 @@
-<header class="fixed top-0 left-0 right-0 z-50">
+<header class="fixed top-0 left-0 right-0 z-50 bg-soft-dark">
     <nav class="shadow-lg">
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex justify-between">
@@ -10,7 +10,7 @@
                         </a>
                     </div>
                     <!-- Primary Navbar items -->
-                    <div class="hidden md:flex items-center space-x-1 bg-[#242933]">
+                    <div class="hidden md:flex items-center space-x-1">
                         <a href="/"
                             class="py-4 px-2 font-semibold hover:text-soft-red transition duration-100 {{ $active === 'home' ? 'text-soft-red' : 'text-white' }}">Home</a>
                         <a href="/reviews"
@@ -25,7 +25,7 @@
                 </div>
                 <!-- Secondary Navbar items -->
                 @guest
-                    <div class="hidden md:flex items-center space-x-3 ">
+                    <div class="hidden md:flex items-center space-x-3">
                         <a href="/login"
                             class="py-1.5 px-2 font-medium text-gray-500 rounded hover:bg-soft-red hover:text-white transition duration-300 {{ $active === 'login' ? 'bg-soft-red text-white' : '' }}">Log
                             In</a>

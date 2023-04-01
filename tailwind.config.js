@@ -13,6 +13,7 @@ module.exports = {
             },
             colors: {
                 "soft-red": "#EC4C56",
+                "soft-dark": "#242933",
             },
         },
     },

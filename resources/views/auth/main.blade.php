@@ -28,7 +28,7 @@
 
 <body class="bg-soft-dark">
     @include('partials.navbar')
-    <div class="max-w-6xl mx-auto px-4 mt-20 text-white z-0">
+    <div class="max-w-6xl mx-auto px-4 text-white z-0">
         @yield('container')
     </div>
 </body>
