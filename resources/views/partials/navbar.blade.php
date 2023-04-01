@@ -23,8 +23,46 @@
                             class="py-4 px-2 font-semibold hover:text-soft-red transition duration-100 {{ $active === 'news' ? 'text-soft-red' : 'text-white' }}">News</a>
                     </div>
                 </div>
-                <!-- Secondary Navbar items -->
-                @guest
+
+                @auth
+                    <style>
+                        .dropdown:hover .dropdown-menu {
+                            display: block;
+                        }
+                    </style>
+                    <div class="p-0 items-center">
+
+                        <div class="dropdown inline-block top-2.5 relative">
+                            <button
+                                class="bg-gray-300 text-gray-700 font-semibold py-2 px-4 rounded inline-flex items-center">
+                                <span class="mr-1">{{ auth()->user()->name }}</span>
+                                <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                    <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                                </svg>
+                            </button>
+                            <ul class="dropdown-menu absolute hidden text-gray-700 pt-1">
+                                <li class="text-sm"><a
+                                        class="rounded-t bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                                        href="#"><i class='bx bx-fw bxs-dashboard'></i>Dashboard</a></li>
+                                <li class="text-sm"><a
+                                        class="bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap"
+                                        href="#"><i class='bx bx-fw bx-user-circle'></i>Profile</a></li>
+                                <li>
+                                    <hr>
+                                </li>
+                                <li class="text-sm">
+                                    <form action="/logout" method="post"
+                                        class="rounded-b bg-gray-200 hover:bg-gray-400 py-2 px-4 block whitespace-no-wrap">
+                                        @csrf
+                                        <button type="submit"><i class='bx bx-fw bx-log-out'></i>Logout</button>
+                                    </form>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                @else
+                    <!-- Secondary Navbar items -->
                     <div class="hidden md:flex items-center space-x-3">
                         <a href="/login"
                             class="py-1.5 px-2 font-medium text-gray-500 rounded hover:bg-soft-red hover:text-white transition duration-300 {{ $active === 'login' ? 'bg-soft-red text-white' : '' }}">Log
@@ -33,7 +71,7 @@
                             class="py-1.5 px-2 font-medium text-gray-500 rounded hover:bg-soft-red hover:text-white transition duration-300 {{ $active === 'register' ? 'bg-soft-red text-white' : '' }}">Sign
                             Up</a>
                     </div>
-                @endguest
+                @endauth
                 <!-- Mobile menu button -->
                 <div class="md:hidden flex items-center">
                     <button class="outline-none mobile-menu-button">

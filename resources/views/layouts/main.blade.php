@@ -13,8 +13,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,500;1,600;1,700&display=swap"
         rel="stylesheet">
 
-    {{-- link to bootstrap icons --}}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    {{-- link to box icons --}}
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
     {{-- link to tailwind css --}}
     @vite('resources/css/app.css')

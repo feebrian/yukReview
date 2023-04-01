@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\DashboardController;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MovieController;
@@ -34,6 +35,9 @@ Route::get('/movies', [MovieController::class, 'index']);
 Route::get('/reviews', [ReviewController::class, 'index']);
 Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/news', [NewsController::class, 'index']);
-Route::get('/login', [RegisterController::class, 'login']);
-Route::get('/register', [RegisterController::class, 'register']);
+Route::get('/login', [RegisterController::class, 'login'])->name('login')->middleware('guest');
+Route::post('/login', [RegisterController::class, 'authenticate']);
+Route::get('/register', [RegisterController::class, 'register'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
+Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
+Route::post('/logout', [RegisterController::class, 'logout'])->middleware('auth');
