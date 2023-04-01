@@ -28,7 +28,7 @@
 
 <body class="bg-[#242933]">
     @include('partials.navbar')
-    <div class="container mx-auto">
+    <div class="max-w-6xl mx-auto px-4 z-0">
         @yield('container')
     </div>
 </body>

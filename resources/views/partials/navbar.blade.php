@@ -1,18 +1,20 @@
-<header class="fixed top-0 left-0 right-0">
+<header class="fixed top-0 left-0 right-0 z-50">
     <nav class="shadow-lg">
         <div class="max-w-6xl mx-auto px-4">
             <div class="flex justify-between">
                 <div class="flex space-x-7">
                     <div>
                         <!-- Website Logo -->
-                        <a href="/" class="flex items-center py-4 px-2">
+                        <a href="/" class="flex items-center py-4 px-2 pl-0">
                             <span class="font-bold text-gray-500 text-lg italic">YukReview.</span>
                         </a>
                     </div>
                     <!-- Primary Navbar items -->
-                    <div class="hidden md:flex items-center space-x-1">
+                    <div class="hidden md:flex items-center space-x-1 bg-[#242933]">
                         <a href="/"
                             class="py-4 px-2 font-semibold hover:text-soft-red transition duration-100 {{ $active === 'home' ? 'text-soft-red' : 'text-white' }}">Home</a>
+                        <a href="/reviews"
+                            class="py-4 px-2 font-semibold hover:text-soft-red transition duration-100 {{ $active === 'reviews' ? 'text-soft-red' : 'text-white' }}">Reviews</a>
                         <a href="/movies"
                             class="py-4 px-2 font-semibold hover:text-soft-red transition duration-100 {{ $active === 'movies' ? 'text-soft-red' : 'text-white' }}">Movies</a>
                         <a href="/categories"
