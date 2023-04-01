@@ -9,7 +9,8 @@ class NewsController extends Controller
     public function index()
     {
         return view('news', [
-            'active' => "news"
+            'active' => "news",
+            'title' => "News"
         ]);
     }
 }

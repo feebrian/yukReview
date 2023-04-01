@@ -15,6 +15,7 @@ class MovieController extends Controller
 
         return view('movies', [
             'active' => "movies",
+            'title' => "Movies",
             'movieList' => $movie
         ]);
     }

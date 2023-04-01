@@ -16,7 +16,9 @@ class LoginController extends Controller
     public function register()
     {
         return view('auth.register', [
-            'active' => "register"
+            'active' => "register",
+            'title' => "Login"
+
         ]);
     }
 

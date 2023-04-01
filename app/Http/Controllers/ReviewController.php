@@ -9,7 +9,8 @@ class ReviewController extends Controller
     public function index()
     {
         return view('reviews', [
-            'active' => "reviews"
+            'active' => "reviews",
+            'title' => "Reviews"
         ]);
     }
 }
