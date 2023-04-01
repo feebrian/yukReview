@@ -19,5 +19,25 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::get('/', function (){
-    return view('home');
+    return view('home', [
+        'active' => "home"
+    ]);
+});
+
+Route::get('/movies', function () {
+    return view('movies', [
+        'active' => "movies"
+    ]);
+});
+
+Route::get('/categories', function () {
+    return view('categories', [
+        'active' => "categories"
+    ]);
+});
+
+Route::get('/news', function () {
+    return view('news', [
+        'active' => "news"
+    ]);
 });

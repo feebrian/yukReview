@@ -11,6 +11,9 @@ module.exports = {
                 center: true,
                 padding: "3rem",
             },
+            colors: {
+                "soft-red": "#EC4C56",
+            },
         },
     },
     plugins: [],

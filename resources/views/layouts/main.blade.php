@@ -7,11 +7,26 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>YukReview | Home</title>
 
+    {{-- link to goolgefont --}}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;1,500;1,600;1,700&display=swap"
+        rel="stylesheet">
+
+    {{-- link to bootstrap icons --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
     {{-- link to tailwind css --}}
     @vite('resources/css/app.css')
 </head>
 
-<body>
+<style>
+    body {
+        font-family: Poppins;
+    }
+</style>
+
+<body class="bg-[#242933]">
     @include('partials.navbar')
     <div class="container mx-auto">
         @yield('container')
