@@ -6,6 +6,12 @@
             <div class="w-96 mx-auto bg-[#1c222e] p-4 rounded-md">
                 <h2 class="font-bold italic text-center text-4xl mb-4">YukLogin!</h2>
 
+                @if (session()->has('success'))
+                    <div class="alert bg-green-500 mb-4 rounded-md px-4 py-4">
+                        <p class="font-bold">{{ session('success') }}</p>
+                    </div>
+                @endif
+
                 <form action="" class="text-black justify-center">
                     <label class="block mb-2">
                         <input type="text" name="username" class="form-input p-3 h-7 w-full text-sm rounded-md mx-auto"
