@@ -3,9 +3,9 @@
 use App\Http\Controllers\CategoryController;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
 use App\Http\Controllers\MovieController;
 use App\Http\Controllers\NewsController;
+use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\ReviewController;
 
 /*
@@ -25,7 +25,8 @@ use App\Http\Controllers\ReviewController;
 
 Route::get('/', function (){
     return view('home', [
-        'active' => "home"
+        'active' => "home",
+        'title' => "Home"
     ]);
 });
 
@@ -33,5 +34,6 @@ Route::get('/movies', [MovieController::class, 'index']);
 Route::get('/reviews', [ReviewController::class, 'index']);
 Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/news', [NewsController::class, 'index']);
-Route::get('/login', [LoginController::class, 'login']);
-Route::get('/register', [LoginController::class, 'register']);
+Route::get('/login', [RegisterController::class, 'login']);
+Route::get('/register', [RegisterController::class, 'register']);
+Route::post('/register', [RegisterController::class, 'store']);

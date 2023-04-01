@@ -6,7 +6,7 @@
             <div class="w-96 mx-auto bg-[#1c222e] p-4 rounded-md">
                 <h2 class="font-bold italic text-center text-4xl mb-4">YukDaftar!</h2>
 
-                <form action="" class="text-black justify-center">
+                <form action="/register" method="POST" class="text-black justify-center">
                     <label class="block mb-2">
                         <input type="text" name="name" class="form-input p-3 h-7 w-full text-sm rounded-md mx-auto"
                             placeholder="nama">
