@@ -1,4 +1,13 @@
 @extends('layouts.main')
 @section('container')
-    <h1>halaman reviews</h1>
+    <style>
+        * {
+            border: 1px solid red;
+        }
+    </style>
+    <div class="grid grid-cols-3 gap-4">
+        <div class="rounded-md">
+            1
+        </div>
+    </div>
 @endsection
