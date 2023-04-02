@@ -222,14 +222,19 @@
             aria-label="Search" />
         <div class="navbar-nav">
             <div class="nav-item text-nowrap">
-                <a class="nav-link px-3" href="#">Sign out</a>
+                <form action="/logout" method="post">
+                    @csrf
+                    <button class="nav-link px-3">Logout</button>
+                </form>
             </div>
         </div>
     </header>
 
     <div class="container-fluid">
         @include('auth.dashboard.sidebar')
-        @yield('container')
+        <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+            @yield('container')
+        </main>
     </div>
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>

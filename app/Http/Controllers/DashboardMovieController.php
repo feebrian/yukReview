@@ -16,7 +16,7 @@ class DashboardMovieController extends Controller
         return view('auth.dashboard.movies', [
             'active' => "movie",
             'title' => "Movies",
-            'movies' => Movie::all('title')
+            'movies' => Movie::all()
         ]);
     }
 
@@ -42,10 +42,14 @@ class DashboardMovieController extends Controller
             'duration' => 'required',
             'actors' => 'required',
             'synopsis' => 'required',
-            'poster' => 'required',
+            'poster' => 'required|file|image|mimes:jpg,jpeg,png|max:1024',
             'rating' => 'required',
             'review' => 'required'
         ]);
+
+        $image_path = $request->file('poster')->store('poster', 'public');
+
+        $validatedData['poster'] = $image_path;
 
         Movie::create($validatedData);
 
