@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\DashboardMovieController;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MovieController;
@@ -35,9 +36,16 @@ Route::get('/movies', [MovieController::class, 'index']);
 Route::get('/reviews', [ReviewController::class, 'index']);
 Route::get('/categories', [CategoryController::class, 'index']);
 Route::get('/news', [NewsController::class, 'index']);
-Route::get('/login', [RegisterController::class, 'login'])->name('login')->middleware('guest');
+Route::get('/login', [RegisterController::class, 'login'])->name('loginw')->middleware('guest');
 Route::post('/login', [RegisterController::class, 'authenticate']);
 Route::get('/register', [RegisterController::class, 'register'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('auth');
 Route::post('/logout', [RegisterController::class, 'logout'])->middleware('auth');
+
+// // dashboard routes
+// Route::get('/dashboard/movies', [DashboardMovieController::class, 'index']);
+// Route::get('/dashboard/movie/new', [DashboardMovieController::class, 'create']);
+// Route::post('/dashboard/movie/new', [DashboardMovieController::class, 'store']);
+
+Route::resource('/dashboard/movies', DashboardMovieController::class);

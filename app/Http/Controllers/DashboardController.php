@@ -8,8 +8,8 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('auth.dashboard.main', [
-            'active' => 'login',
+        return view('auth.dashboard.dashboard', [
+            'active' => 'dashboard',
             'title' => 'Dashboard'
         ]);
     }
