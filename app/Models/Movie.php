@@ -10,4 +10,12 @@ class Movie extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+
+    /**
+     * to get related genre
+     */
+    public function genre()
+    {
+        return $this->hasOne(Genre::class);
+    }
 }

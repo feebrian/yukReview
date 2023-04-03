@@ -11,16 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('movies', function (Blueprint $table) {
+        Schema::create('genres', function (Blueprint $table) {
             $table->id();
-            $table->string('title');
-            $table->foreignId('genre_id');
-            $table->string('duration');
-            $table->string('actors');
-            $table->text('synopsis');
-            $table->string('poster');
-            $table->string('rating');
-            $table->string('review');
+            $table->string('name');
             $table->timestamps();
         });
     }
@@ -30,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('movies');
+        Schema::dropIfExists('genres');
     }
 };

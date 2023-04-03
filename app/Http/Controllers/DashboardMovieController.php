@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Genre;
 use App\Models\Movie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Symfony\Contracts\Service\Attribute\Required;
+
+use function PHPSTORM_META\map;
 
 class DashboardMovieController extends Controller
 {
@@ -27,7 +31,8 @@ class DashboardMovieController extends Controller
     {
         return view('auth.dashboard.movie', [
             'active' => 'movie',
-            'title' => 'New Movie'
+            'title' => 'New Movie',
+            'genres' => Genre::all()
         ]);
     }
 
@@ -38,7 +43,7 @@ class DashboardMovieController extends Controller
     {
         $validatedData = $request->validate([
             'title' => 'required',
-            'genre' => 'required',
+            'genre_id' => 'required',
             'duration' => 'required',
             'actors' => 'required',
             'synopsis' => 'required',
@@ -47,6 +52,7 @@ class DashboardMovieController extends Controller
             'review' => 'required'
         ]);
 
+        $validatedData['genre'] =
         $image_path = $request->file('poster')->store('poster', 'public');
 
         $validatedData['poster'] = $image_path;
@@ -69,7 +75,12 @@ class DashboardMovieController extends Controller
      */
     public function edit(Movie $movie)
     {
-        //
+        return view('auth.dashboard.movieUpdate', [
+            'title' => "Edit Movie",
+            'active' => "movie",
+            'genres' => Genre::all(),
+            'movies' => Movie::all()->firstWhere('id', '===', $movie->id)
+        ]);
     }
 
     /**
@@ -87,6 +98,19 @@ class DashboardMovieController extends Controller
     {
         Movie::destroy($movie->id);
 
+        $this->removeImage($movie->poster);
+
         return redirect('/dashboard/movies')->with('success', 'Berhasil menghapus movie!');
+    }
+
+    /**
+     * Remove image function
+     */
+    public function removeImage($imageName)
+    {
+        if(Storage::exists('/public/'. $imageName))
+        {
+            Storage::delete('/public/'. $imageName);
+        }
     }
 }
