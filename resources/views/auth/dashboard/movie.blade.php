@@ -85,6 +85,35 @@
                     {{ $message }}
                 @enderror
             </div>
+
+            <div class="row">
+                <div class="col mb-2">
+                    <label for="poster" class="form-label mb-1">Poster</label>
+                    <input type="file" name="poster"
+                        class="form-control form-control-sm @error('poster')
+                        is-invalid
+                    @enderror"
+                        id="poster">
+                    @error('poster')
+                        {{ $message }}
+                    @enderror
+                </div>
+                <div class="col mb-2">
+                    <label for="rating" class="form-label">Rating</label>
+                    <input type="range" value="1" min="1" max="10" step="0.1"
+                        oninput="this.nextElementSibling.value = this.value" name="rating"
+                        class="form-range @error('rating')
+                            is-invalid
+                        @enderror"
+                        id="rating">
+                    <output>0</output>
+                    <p class="d-inline">/ 10</p>
+                    @error('rating')
+                        {{ $message }}
+                    @enderror
+                </div>
+            </div>
+
             <div class="mb-2 form-floating">
                 <textarea name="synopsis" name="synopsis" id="synopsis"
                     class="form-control @error('synopsis')
@@ -96,28 +125,7 @@
                     {{ $message }}
                 @enderror
             </div>
-            <div class="mb-2">
-                <label for="poster" class="form-label mb-1">Poster</label>
-                <input type="file" name="poster"
-                    class="form-control form-control-sm @error('poster')
-                        is-invalid
-                    @enderror"
-                    id="poster">
-                @error('poster')
-                    {{ $message }}
-                @enderror
-            </div>
-            <div class="mb-2 form-floating">
-                <input type="text" name="rating"
-                    class="form-control @error('rating')
-                        is-invalid
-                    @enderror"
-                    id="rating">
-                <label for="rating" class="form-label">Rating</label>
-                @error('rating')
-                    {{ $message }}
-                @enderror
-            </div>
+
             <div class="mb-2 form-floating">
                 <input type="text" name="review"
                     class="form-control @error('review')
