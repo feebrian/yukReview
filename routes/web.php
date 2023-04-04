@@ -3,6 +3,7 @@
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DashboardMovieController;
+use App\Http\Controllers\GenreDashboardController;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MovieController;
@@ -44,8 +45,5 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->middleware('aut
 Route::post('/logout', [RegisterController::class, 'logout'])->middleware('auth');
 
 // // dashboard routes
-// Route::get('/dashboard/movies', [DashboardMovieController::class, 'index']);
-// Route::get('/dashboard/movie/new', [DashboardMovieController::class, 'create']);
-// Route::post('/dashboard/movie/new', [DashboardMovieController::class, 'store']);
-
 Route::resource('/dashboard/movies', DashboardMovieController::class);
+Route::resource('/dashboard/genres', GenreDashboardController::class);

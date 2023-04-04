@@ -9,8 +9,14 @@
             </li>
             <li class="nav-item">
                 <a class="nav-link {{ $active === 'movie' ? 'active' : '' }}" href="/dashboard/movies">
-                    <span data-feather="file" class="align-text-bottom"></span>
+                    <span data-feather="film" class="align-text-bottom"></span>
                     Movies
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {{ $active === 'genres' ? 'active' : '' }}" href="/dashboard/genres">
+                    <span data-feather="grid" class="align-text-bottom"></span>
+                    Genres
                 </a>
             </li>
         </ul>
