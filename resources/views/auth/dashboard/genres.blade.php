@@ -7,11 +7,19 @@
     </div>
     <h2>All Genre</h2>
 
-    <a href="/dashboard/genres/create" class="btn btn-success"><span data-feather="plus" class="align-text-bottom"></span> New
+    <a href="/dashboard/genres/create" class="btn btn-success mb-3"><span data-feather="plus" class="align-text-bottom"></span>
+        New
         Genre</a>
 
     <div class="row">
         <div class="col-md-6">
+
+            @if (session()->has('success'))
+                <div class="alert alert-success" role="alert">
+                    {{ session('success') }}
+                </div>
+            @endif
+
 
             <table class="table table-striped">
                 <thead>
@@ -34,9 +42,9 @@
                                     @csrf
                                     @method('delete')
 
-                                    <button class="badge bg-danger border-0">
-                                        <span data-feather="trash-2" class="align-text-bottom"
-                                            onclick="confirm('yakin ingin menghapus genre ini?')"></span>
+                                    <button class="badge bg-danger border-0"
+                                        onclick="return confirm('yakin ingin menghapus genre ini?')">
+                                        <span data-feather="trash-2" class="align-text-bottom"></span>
                                     </button>
                                 </form>
                             </td>

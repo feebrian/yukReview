@@ -10,6 +10,11 @@
         Kembali</a>
     <div class="row">
         <div class="col-md-4">
+            @if (session()->has('success'))
+                <div class="alert bg-green-500 mb-4 rounded-md px-4 py-4">
+                    <p class="font-bold">{{ session('success') }}</p>
+                </div>
+            @endif
             <form action="/dashboard/genres" method="post">
                 <form>
                     @csrf

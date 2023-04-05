@@ -75,7 +75,15 @@ class GenreDashboardController extends Controller
      */
     public function update(Request $request, Genre $genre)
     {
-        //
+        // update selected genre
+        $rules = [
+            'name' => 'required|max:20'
+        ];
+
+        $validatedData = $request->validate($rules);
+
+        Genre::where('id', $genre->id)->update($validatedData);
+        return redirect('/dashboard/genres')->with('success', 'Berhasil mengedit genre!');
     }
 
     /**

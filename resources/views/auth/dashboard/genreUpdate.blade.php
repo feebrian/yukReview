@@ -10,22 +10,21 @@
         Kembali</a>
     <div class="row">
         <div class="col-md-4">
-            <form action="/dashboard/genres" method="post">
-                <form>
-                    @csrf
-                    <div class="mb-3">
-                        <label for="genre" class="form-label">Genre</label>
-                        <input type="text" name="genre"
-                            class="form-control form-control-sm @error('genre')
+            <form action="/dashboard/genres/{{ $genre->id }}" method="post">
+                @csrf
+                @method('put')
+                <div class="mb-3">
+                    <label for="name" class="form-label">Genre</label>
+                    <input type="text" name="name"
+                        class="form-control form-control-sm @error('name')
                             is-invalid
                         @enderror"
-                            id="genre" value="{{ $genre->name }}" autofocus>
-                        @error('genre')
-                            {{ $message }}
-                        @enderror
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </form>
+                        id="name" value="{{ $genre->name }}" autofocus>
+                    @error('name')
+                        {{ $message }}
+                    @enderror
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
     </div>
